@@ -3,423 +3,839 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#11090c">
-  <meta name="description" content="Amer Jweihan is a cybersecurity student at Al Hussein Technical University focused on penetration testing, web application security, and digital forensics.">
-  <title>Amer Jweihan — Cybersecurity Student</title>
+  <meta name="theme-color" content="#090c12">
+  <meta name="description" content="Amer Jweihan — cybersecurity student focused on offensive security, digital forensics, and secure systems.">
+  <title>Amer Jweihan — Security, in focus</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style media="not all">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
     :root {
       color-scheme: dark;
-      --ink: #202a27;
-      --panel: #ffffff;
-      --panel-light: #e9efeb;
-      --paper: #f4f7f3;
-      --muted: #586761;
-      --line: #d5dfd9;
-      --acid: #c65338;
-      --teal: #2c706b;
+      --night: #090c12;
+      --glass: rgba(18, 24, 34, 0.58);
+      --glass-strong: rgba(16, 22, 32, 0.78);
+      --glass-light: rgba(255, 255, 255, 0.08);
+      --stroke: rgba(255, 255, 255, 0.17);
+      --white: #f5f7fb;
+      --soft: rgba(240, 244, 250, 0.72);
+      --dim: rgba(240, 244, 250, 0.52);
+      --blue: #a9d8ff;
+      --cyan: #b7f3f5;
+      --content: 1240px;
       --mono: "DM Mono", monospace;
-      --sans: "Space Grotesk", sans-serif;
-      --content: 1160px;
+      --sans: "Manrope", sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-    ::selection { background: var(--acid); color: var(--ink); }
-
-    .site-header {
-      position: sticky; top: 0; z-index: 5; border-bottom: 1px solid var(--line);
-      background: rgba(244,247,243,.94); backdrop-filter: blur(16px);
+    html { scroll-behavior: smooth; scroll-padding-top: 94px; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 75% 8%, rgba(52, 97, 146, 0.2), transparent 34rem),
+        radial-gradient(ellipse at 10% 55%, rgba(65, 110, 142, 0.1), transparent 38rem),
+        var(--night);
+      color: var(--white);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
     }
-    .nav-wrap { width: min(var(--content), calc(100% - 48px)); min-height: 76px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
-    .brand { display: inline-flex; gap: 10px; align-items: center; font-size: 16px; font-weight: 700; letter-spacing: .02em; white-space: nowrap; }
-    .brand-mark { color: var(--acid); font-family: var(--mono); font-size: 20px; }
-    .brand small { display: block; margin-top: 3px; color: var(--muted); font: 13px var(--mono); letter-spacing: .04em; }
-    .nav-links { display: flex; align-items: center; gap: 28px; color: #465650; font-size: 15px; }
-    .nav-links a:hover, .nav-links a:focus-visible { color: var(--teal); }
-    .nav-cta, .button-primary { display: inline-flex; justify-content: center; align-items: center; gap: 12px; padding: 14px 18px; background: var(--acid); color: var(--ink); font-weight: 700; font-size: 14px; transition: background .2s, transform .2s; }
-    .nav-cta:hover, .button-primary:hover { background: #de765b; transform: translateY(-2px); }
-    .menu-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--line); color: var(--ink); background: transparent; cursor: pointer; }
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      pointer-events: none;
+      opacity: 0.18;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { color: inherit; font: inherit; }
+    ::selection { background: var(--cyan); color: var(--night); }
+    :focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
 
-    .wrap { width: min(var(--content), calc(100% - 48px)); margin: auto; }
-    .hero { position: relative; min-height: 615px; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 42px; padding-top: 68px; padding-bottom: 72px; }
-    .hero::before { content: ""; position: absolute; inset: 6% 0 4%; z-index: -1; opacity: .32; background-image: linear-gradient(rgba(44,112,107,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(44,112,107,.09) 1px, transparent 1px); background-size: 44px 44px; mask-image: linear-gradient(90deg, transparent, #000 30%, #000 80%, transparent); }
-    .hero-copy { padding: 20px 0; }
-    .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 22px; color: var(--acid); font: 14px var(--mono); letter-spacing: .03em; text-transform: uppercase; }
-    .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--acid); box-shadow: 0 0 0 5px rgba(198,83,56,.12); animation: pulse 2s infinite; }
-    @keyframes pulse { 50% { box-shadow: 0 0 0 9px rgba(198,83,56,0); } }
-    h1 { max-width: 700px; margin: 0; font-size: clamp(56px, 7.6vw, 98px); line-height: .91; letter-spacing: -.065em; font-weight: 600; }
-    h1 span { color: var(--acid); }
-    .hero-role { margin: 25px 0 0; color: #52615b; font-size: 18px; line-height: 1.45; }
-    .hero-role strong { color: var(--ink); font-weight: 600; }
-    .hero-intro { max-width: 500px; margin: 16px 0 0; color: var(--muted); font-size: 16px; line-height: 1.75; }
-    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px 22px; margin-top: 30px; }
-    .text-link { color: var(--ink); font-size: 15px; border-bottom: 1px solid #91a098; padding: 0 0 5px; }
-    .text-link:hover { color: var(--teal); border-color: var(--teal); }
-    .hero-location { margin: 28px 0 0; color: var(--muted); font: 13px var(--mono); letter-spacing: .02em; }
-    .hero-visual { position: relative; justify-self: end; width: min(100%, 440px); }
-    .portrait-frame { position: relative; height: 460px; overflow: hidden; border: 1px solid #c6d3cc; background: #dfe8e2; }
-    .portrait-frame::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, transparent 48%, rgba(16,18,15,.88)), linear-gradient(90deg, rgba(196,244,91,.1), transparent 45%); pointer-events: none; }
-    .portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 36%; filter: saturate(.68) contrast(1.08); }
-    .image-label { position: absolute; z-index: 2; right: 14px; bottom: 14px; left: 14px; display: flex; align-items: end; justify-content: space-between; gap: 12px; font: 12px var(--mono); color: var(--paper); }
-    .image-label span:last-child { color: var(--acid); }
-    .float-tag { position: absolute; top: 26px; left: -36px; z-index: 2; padding: 11px 13px; border: 1px solid var(--line); background: rgba(255,255,255,.95); color: var(--acid); font: 12px var(--mono); }
-    .hero-index { position: absolute; right: -19px; top: -23px; color: var(--acid); font: 13px var(--mono); writing-mode: vertical-rl; }
+    .wrap { width: min(var(--content), calc(100% - 48px)); margin-inline: auto; }
+    .mono, .eyebrow, .nav-link, .section-index, .project-category, .chip, .status, .meta-label {
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: var(--cyan);
+      font-size: 10px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 20px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.7;
+    }
+    .glass {
+      border: 1px solid var(--stroke);
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.035) 44%, rgba(255,255,255,0.06));
+      box-shadow: 0 28px 80px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.16);
+      backdrop-filter: blur(24px) saturate(145%);
+      -webkit-backdrop-filter: blur(24px) saturate(145%);
+    }
+    .site-header {
+      position: fixed;
+      top: 0;
+      z-index: 20;
+      width: 100%;
+      border-bottom: 1px solid rgba(255,255,255,0.16);
+      background: rgba(9,12,18,0.22);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+    .scroll-progress {
+      position: absolute;
+      right: 0;
+      bottom: -1px;
+      left: 0;
+      height: 1px;
+      transform: scaleX(0);
+      transform-origin: left center;
+      background: linear-gradient(90deg, var(--cyan), var(--blue));
+      box-shadow: 0 0 12px rgba(183,243,245,.7);
+      pointer-events: none;
+    }
+    .nav-wrap {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 11px; }
+    .brand-mark {
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      border: 1px solid var(--stroke);
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      color: var(--cyan);
+      font: 11px var(--mono);
+      box-shadow: inset 0 1px 8px rgba(255,255,255,0.12);
+    }
+    .brand-name { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-link { color: rgba(255,255,255,0.76); font-size: 9px; transition: color .2s ease; }
+    .nav-link:hover, .nav-link[aria-current="location"] { color: var(--cyan); }
+    .nav-contact, .button {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 4px;
+      background: linear-gradient(140deg, rgba(255,255,255,0.2), rgba(255,255,255,0.06));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.24), 0 8px 26px rgba(0,0,0,0.18);
+      backdrop-filter: blur(12px);
+      color: var(--white);
+      cursor: pointer;
+      font: 10px var(--mono);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: transform .24s ease, background .24s ease, border-color .24s ease;
+    }
+    .nav-contact:hover, .button:hover { transform: translateY(-2px); border-color: rgba(183,243,245,0.7); background: rgba(183,243,245,0.16); }
+    .menu-toggle { display: none; }
 
-    .stats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .stat { min-height: 110px; padding: 26px 30px; border-right: 1px solid var(--line); }
-    .stat:first-child { padding-left: 0; }
-    .stat:last-child { border: 0; }
-    .stat strong { display: block; color: var(--acid); font-size: 32px; font-weight: 500; letter-spacing: -.04em; }
-    .stat span { display: block; margin-top: 7px; color: var(--muted); font: 14px var(--mono); letter-spacing: .02em; }
+    .hero {
+      position: relative;
+      min-height: min(840px, 100svh);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      isolation: isolate;
+      padding: 108px 0 60px;
+    }
+    .hero-art, .hero-art::after { position: absolute; inset: 0; }
+    .hero-art { z-index: -2; background: #101923; }
+    .hero-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 46%;
+      filter: saturate(.83) contrast(1.04) brightness(.66);
+      transform: scale(1.025);
+      animation: hero-drift 24s ease-in-out infinite alternate;
+    }
+    .hero-art::after {
+      content: "";
+      background:
+        linear-gradient(90deg, rgba(5,9,15,.78) 0%, rgba(5,9,15,.48) 45%, rgba(5,9,15,.1) 100%),
+        linear-gradient(0deg, var(--night) 0%, transparent 30%, rgba(5,9,15,.22) 100%);
+    }
+    @keyframes hero-drift { to { transform: scale(1.09) translateX(-1%); } }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 620px) 1fr; align-items: center; }
+    .hero-panel { position: relative; padding: clamp(28px, 5vw, 58px); border-radius: 6px; overflow: hidden; }
+    .hero-panel::after {
+      position: absolute;
+      top: -50%;
+      left: -45%;
+      width: 42%;
+      height: 210%;
+      content: "";
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.09), transparent);
+      transform: rotate(28deg);
+      animation: glass-glint 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes glass-glint { 0%, 62% { left: -45%; } 82%, 100% { left: 125%; } }
+    .hero-kicker { color: var(--soft); }
+    h1 {
+      max-width: 650px;
+      margin: 0;
+      font-size: clamp(52px, 8vw, 108px);
+      line-height: .91;
+      letter-spacing: -.08em;
+      font-weight: 500;
+    }
+    h1 span { color: var(--cyan); }
+    .hero-role { margin: 22px 0 0; color: var(--white); font-size: clamp(14px, 1.7vw, 18px); }
+    .hero-copy { max-width: 550px; margin: 15px 0 0; color: var(--soft); font-size: 14px; line-height: 1.85; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 28px; }
+    .button-primary { background: linear-gradient(130deg, rgba(183,243,245,.25), rgba(255,255,255,.07)); border-color: rgba(183,243,245,.44); }
+    .hero-foot {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 30px;
+      color: rgba(255,255,255,.65);
+      font: 9px var(--mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #9af4c9; box-shadow: 0 0 16px #9af4c9; }
+    .hero-mark {
+      align-self: end;
+      justify-self: end;
+      margin: 0 6px 12px;
+      color: rgba(255,255,255,.8);
+      font: 9px var(--mono);
+      letter-spacing: .22em;
+      writing-mode: vertical-rl;
+    }
+    .hero-bottom {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-top: 1px solid rgba(255,255,255,.17);
+      background: rgba(9,12,18,.28);
+      backdrop-filter: blur(16px);
+    }
+    .hero-stats { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .stat { display: flex; align-items: baseline; gap: 10px; }
+    .stat strong { color: var(--cyan); font-size: 18px; font-weight: 600; }
+    .stat span { color: var(--soft); font: 9px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+    .scroll-cue { color: rgba(255,255,255,.62); font: 9px var(--mono); letter-spacing: .15em; text-transform: uppercase; }
 
-    .section { padding: 112px 0; }
-    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 28px; margin-bottom: 42px; }
-    .section-kicker { margin: 0 0 15px; color: var(--acid); font: 13px var(--mono); letter-spacing: .04em; text-transform: uppercase; }
-    h2 { max-width: 690px; margin: 0; font-size: clamp(34px, 4.7vw, 58px); line-height: 1; letter-spacing: -.055em; font-weight: 500; }
-    .section-note { max-width: 340px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.7; }
-    .about-grid { max-width: 850px; }
-    .about-copy h3 { max-width: 700px; margin: 0 0 20px; font-size: clamp(26px, 3vw, 36px); line-height: 1.2; font-weight: 500; letter-spacing: -.04em; }
-    .about-copy p { max-width: 760px; margin: 0 0 16px; color: var(--muted); font-size: 17px; line-height: 1.8; }
+    .section { position: relative; padding: clamp(78px, 10vw, 142px) 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 42px; }
+    .section-index { margin: 0 0 14px; color: var(--cyan); font-size: 9px; }
+    h2 { margin: 0; font-size: clamp(38px, 6vw, 76px); line-height: .98; letter-spacing: -.07em; font-weight: 500; }
+    .section-note { max-width: 370px; margin: 0; color: var(--soft); font-size: 13px; line-height: 1.8; }
+    .about-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(30px, 8vw, 112px); align-items: start; }
+    .about-quote { margin: 0; font-size: clamp(24px, 3.2vw, 42px); line-height: 1.22; letter-spacing: -.05em; font-weight: 500; }
+    .about-quote span { color: var(--cyan); }
+    .about-panel { padding: clamp(24px, 4vw, 42px); border-radius: 5px; }
+    .about-panel p { margin: 0; color: var(--soft); font-size: 14px; line-height: 1.9; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 25px; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 11px;
+      border: 1px solid rgba(255,255,255,.17);
+      border-radius: 100px;
+      background: rgba(255,255,255,.055);
+      color: rgba(255,255,255,.78);
+      font-size: 8px;
+      letter-spacing: .09em;
+      transition: border-color .2s ease, background .2s ease, transform .2s ease;
+    }
+    .chip:hover { transform: translateY(-2px); border-color: rgba(183,243,245,.5); background: rgba(183,243,245,.1); }
 
-    .expertise { border-top: 1px solid var(--line); background: var(--panel-light); }
-    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
-    .service { min-height: 225px; padding: 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background .2s; }
-    .service:hover { background: var(--panel); }
-    .service-num { color: var(--teal); font: 13px var(--mono); }
-    .service h3 { margin: 34px 0 12px; font-size: 21px; font-weight: 500; }
-    .service p { max-width: 310px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.65; }
+    .projects-section { padding-top: 55px; }
+    .project-tools { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 22px; }
+    .filters { display: flex; flex-wrap: wrap; gap: 7px; }
+    .filter-button {
+      min-height: 34px;
+      padding: 0 13px;
+      border: 1px solid var(--stroke);
+      border-radius: 100px;
+      background: rgba(255,255,255,.035);
+      color: var(--soft);
+      cursor: pointer;
+      font: 8px var(--mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .filter-button:hover, .filter-button[aria-pressed="true"] { border-color: rgba(183,243,245,.55); background: rgba(183,243,245,.13); color: var(--white); }
+    .project-count { color: var(--dim); font: 9px var(--mono); letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+    .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .project-card {
+      --project-image: none;
+      position: relative;
+      min-height: 320px;
+      overflow: hidden;
+      isolation: isolate;
+      border: 1px solid var(--stroke);
+      border-radius: 5px;
+      background: #121b25;
+      box-shadow: 0 16px 42px rgba(0,0,0,.24);
+      cursor: pointer;
+      transition: transform .35s ease, border-color .3s ease, box-shadow .3s ease;
+    }
+    .project-card::before, .project-card::after { position: absolute; inset: 0; content: ""; pointer-events: none; }
+    .project-card::before {
+      z-index: -2;
+      background: linear-gradient(145deg, rgba(74,114,142,.35), rgba(12,18,26,.1)), var(--project-image) center / cover;
+      filter: saturate(.78);
+      transform: scale(1.02);
+      transition: transform .7s cubic-bezier(.2,.8,.2,1), filter .4s ease;
+    }
+    .project-card::after {
+      z-index: -1;
+      background: linear-gradient(180deg, rgba(6,10,16,.02) 10%, rgba(6,10,16,.18) 35%, rgba(6,10,16,.94) 100%);
+    }
+    .project-card:hover, .project-card:focus-visible, .project-card.is-selected { transform: translateY(-5px); border-color: rgba(183,243,245,.6); box-shadow: 0 24px 60px rgba(0,0,0,.4), 0 0 28px rgba(134,208,223,.12); }
+    .project-card:hover::before, .project-card.is-selected::before { transform: scale(1.08); filter: saturate(1); }
+    .project-card-copy {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 22px;
+      border-top: 1px solid rgba(255,255,255,.16);
+      background: linear-gradient(135deg, rgba(255,255,255,.13), rgba(13,20,30,.56));
+      backdrop-filter: blur(16px) saturate(145%);
+      -webkit-backdrop-filter: blur(16px) saturate(145%);
+    }
+    .project-card-copy::before {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: radial-gradient(240px circle at var(--pointer-x, 50%) var(--pointer-y, 0%), rgba(183,243,245,.15), transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease;
+    }
+    .project-card:hover .project-card-copy::before,
+    .project-card:focus-visible .project-card-copy::before { opacity: 1; }
+    .project-category { color: var(--cyan); font-size: 8px; }
+    .project-card h3 { margin: 10px 0 8px; font-size: 19px; line-height: 1.2; letter-spacing: -.04em; font-weight: 600; }
+    .project-card p { margin: 0; color: var(--soft); font-size: 11px; line-height: 1.6; }
+    .project-card-action { display: inline-flex; align-items: center; gap: 7px; margin-top: 16px; color: var(--white); font: 8px var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+    .project-card-action span { color: var(--cyan); transition: transform .2s ease; }
+    .project-card:hover .project-card-action span { transform: translateX(4px); }
 
-    .work-list { border-top: 1px solid var(--line); }
-    .project { display: grid; grid-template-columns: 60px minmax(200px, .8fr) 1.4fr 100px; align-items: center; gap: 26px; min-height: 136px; border-bottom: 1px solid var(--line); transition: padding .2s, background .2s; }
-    .project:hover { padding-inline: 14px; background: var(--panel); }
-    .project-number { color: var(--teal); font: 13px var(--mono); }
-    .project-type { color: var(--muted); font: 13px var(--mono); letter-spacing: .02em; text-transform: uppercase; }
-    .project h3 { margin: 8px 0 0; font-size: 21px; font-weight: 500; letter-spacing: -.02em; }
-    .project p { max-width: 470px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.65; }
-    .project-result { color: var(--acid); font: 13px var(--mono); text-align: right; }
+    .detail-shell { display: grid; grid-template-columns: 1fr .95fr; margin-top: 18px; overflow: hidden; border-radius: 5px; }
+    .detail-art { position: relative; min-height: 390px; overflow: hidden; background: #111922; }
+    .detail-art img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; filter: saturate(.82) brightness(.72); transition: opacity .25s ease, transform .7s ease; }
+    .detail-art:hover img { transform: scale(1.035); }
+    .detail-art::after { position: absolute; inset: 0; content: ""; background: linear-gradient(0deg, rgba(7,11,17,.6), transparent 65%); pointer-events: none; }
+    .detail-art-label { position: absolute; right: 20px; bottom: 18px; left: 20px; z-index: 1; display: flex; justify-content: space-between; gap: 16px; color: var(--white); font: 8px var(--mono); letter-spacing: .15em; text-transform: uppercase; }
+    .detail-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(24px, 5vw, 54px); }
+    .detail-copy h3 { margin: 0; font-size: clamp(27px, 3.5vw, 43px); line-height: 1.04; letter-spacing: -.06em; font-weight: 500; }
+    .detail-description { margin: 17px 0 0; color: var(--soft); font-size: 13px; line-height: 1.8; }
+    .detail-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 26px 0; padding: 17px 0; border-top: 1px solid var(--stroke); border-bottom: 1px solid var(--stroke); }
+    .meta-label { display: block; margin-bottom: 7px; color: var(--dim); font-size: 8px; }
+    .meta-value { color: var(--white); font-size: 11px; }
+    .detail-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .detail-tags .chip { font-size: 8px; }
+    .detail-cta { align-self: flex-start; margin-top: 24px; }
 
-    .arsenal { border-top: 1px solid var(--line); background: var(--panel); }
-    .arsenal-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; }
-    .arsenal-copy p { max-width: 450px; color: var(--muted); font-size: 16px; line-height: 1.7; }
-    .skill-list { display: grid; }
-    .skill-row { display: grid; grid-template-columns: 190px 1fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); }
-    .skill-row h3 { margin: 0; color: var(--acid); font: 14px var(--mono); }
-    .skill-row p { margin: 0; color: var(--ink); font-size: 16px; line-height: 1.7; }
+    .credentials-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+    .credential {
+      overflow: hidden;
+      border-radius: 4px;
+      transition: transform .3s ease, border-color .3s ease;
+    }
+    .credential:hover { transform: translateY(-4px); border-color: rgba(183,243,245,.5); }
+    .credential img { width: 100%; aspect-ratio: 1.6; object-fit: cover; background: rgba(255,255,255,.04); }
+    .credential-copy { padding: 18px; }
+    .credential h3 { margin: 0; font-size: 16px; }
+    .credential p { margin: 7px 0 0; color: var(--soft); font-size: 11px; line-height: 1.65; }
+    .credential-label { display: block; margin-top: 15px; color: var(--cyan); font: 8px var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+    .credential-extra { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-top: 12px; padding: 17px 20px; border-radius: 4px; }
+    .credential-extra strong { font-size: 13px; }
+    .credential-extra span { color: var(--soft); font-size: 11px; }
 
-    .certification-gallery { border-top: 1px solid var(--line); background: var(--panel-light); }
-    .certificate-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-    .certificate { min-width: 0; border: 1px solid var(--line); background: var(--panel); }
-    .certificate-image { display: block; overflow: hidden; background: #e5ece8; }
-    .certificate-image img { display: block; width: 100%; aspect-ratio: 1192 / 744; object-fit: contain; transition: transform .25s; }
-    .certificate-image:hover img, .certificate-image:focus-visible img { transform: scale(1.015); }
-    .certificate-caption { padding: 20px 22px 22px; }
-    .certificate-caption h3 { margin: 0; font-size: 21px; font-weight: 500; }
-    .certificate-caption p { margin: 8px 0 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
-    .certificate-meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 18px; margin-top: 15px; color: var(--acid); font: 13px var(--mono); }
+    .contact-section { padding-top: 20px; }
+    .contact-card { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: clamp(28px, 5vw, 58px); border-radius: 5px; }
+    .contact-card h2 { max-width: 730px; font-size: clamp(42px, 7vw, 82px); }
+    .contact-card p { max-width: 600px; margin: 15px 0 0; color: var(--soft); font-size: 13px; line-height: 1.8; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 22px; }
+    .contact-links a { color: rgba(255,255,255,.82); font: 9px var(--mono); letter-spacing: .07em; }
+    .contact-links a:hover { color: var(--cyan); }
+    footer { padding: 24px 0 30px; }
+    .footer-row { display: flex; justify-content: space-between; gap: 20px; color: var(--dim); font: 8px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+    .footer-row a:hover { color: var(--cyan); }
 
-    .contact { position: relative; overflow: hidden; padding: 93px 0; border-top: 1px solid var(--line); }
-    .contact::after { content: "SECURE"; position: absolute; right: -15px; bottom: -44px; color: rgba(198,83,56,.055); font-size: clamp(90px, 18vw, 230px); font-weight: 700; letter-spacing: -.08em; pointer-events: none; }
-    .contact-row { position: relative; z-index: 1; display: flex; align-items: end; justify-content: space-between; gap: 30px; }
-    .contact h2 { max-width: 700px; }
-    .contact-copy { margin: 20px 0 0; color: var(--muted); font-size: 16px; line-height: 1.65; }
-    .contact-details { display: flex; flex-wrap: wrap; gap: 14px 22px; margin-top: 20px; color: var(--ink); font: 14px var(--mono); }
-    .contact-details a:hover { color: var(--teal); }
-    .footer { border-top: 1px solid var(--line); }
-    .footer-row { min-height: 68px; display: flex; justify-content: space-between; align-items: center; gap: 20px; color: var(--muted); font: 13px var(--mono); }
-    .footer a:hover { color: var(--acid); }
-
+    dialog {
+      width: min(560px, calc(100% - 32px));
+      padding: 0;
+      border: 1px solid var(--stroke);
+      border-radius: 6px;
+      background: rgba(13,19,28,.83);
+      color: var(--white);
+      box-shadow: 0 28px 100px rgba(0,0,0,.6);
+      backdrop-filter: blur(26px) saturate(150%);
+    }
+    dialog::backdrop { background: rgba(4,7,12,.72); backdrop-filter: blur(5px); }
+    .dialog-inner { padding: 30px; }
+    .dialog-top { display: flex; justify-content: space-between; gap: 15px; align-items: start; }
+    .dialog-top h2 { font-size: 34px; }
+    .dialog-close { width: 34px; height: 34px; border: 1px solid var(--stroke); border-radius: 50%; background: rgba(255,255,255,.08); cursor: pointer; }
+    .dialog-copy { margin: 18px 0; color: var(--soft); font-size: 13px; line-height: 1.8; }
+    .dialog-outcomes { margin: 0; padding-left: 18px; color: var(--soft); font-size: 12px; line-height: 1.9; }
     .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
+    .reveal.is-visible { opacity: 1; transform: none; }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
       .reveal { opacity: 1; transform: none; }
     }
-    @media (max-width: 760px) {
-      .nav-wrap, .wrap { width: min(100% - 36px, var(--content)); }
-      .nav-wrap { min-height: 66px; }
-      .menu-toggle { display: inline-grid; place-items: center; margin-left: auto; }
-      .nav-cta { display: none; }
-      .nav-links { position: absolute; top: 65px; right: 0; left: 0; display: none; padding: 12px 18px 19px; border-bottom: 1px solid var(--line); background: var(--paper); }
-      .nav-links.open { display: grid; gap: 0; }
-      .nav-links a { padding: 13px 0; border-bottom: 1px solid var(--line); }
-      .nav-links a:last-child { border: 0; }
-      .hero { min-height: auto; grid-template-columns: 1fr; gap: 32px; padding-top: 59px; padding-bottom: 50px; }
-      h1 { font-size: clamp(54px, 15vw, 82px); }
-      .hero-visual { width: min(82%, 400px); justify-self: center; }
-      .portrait-frame { height: 390px; }
-      .float-tag { left: -20px; }
-      .stats { grid-template-columns: 1fr; }
-      .stat { min-height: auto; padding: 18px; border-right: 0; border-bottom: 1px solid var(--line); }
-      .stat:first-child { padding-left: 18px; }
-      .stat:last-child { border-bottom: 0; }
-      .section { padding: 82px 0; }
-      .section-heading { display: block; margin-bottom: 30px; }
-      .section-note { margin-top: 16px; }
-      .about-grid { display: block; }
-      .service-grid { grid-template-columns: repeat(2, 1fr); }
-      .service { min-height: 205px; padding: 20px; }
-      .project { grid-template-columns: 36px 1fr auto; gap: 12px; min-height: 150px; padding: 18px 0; }
-      .project p { grid-column: 2 / 4; grid-row: 2; }
-      .project-result { grid-column: 3; grid-row: 1; }
-      .project-meta { grid-column: 2; }
-      .project:hover { padding-inline: 8px; }
-      .arsenal-grid { grid-template-columns: 1fr; gap: 24px; }
-      .skill-row { grid-template-columns: 1fr; gap: 8px; }
-      .certificate-grid { grid-template-columns: 1fr; gap: 18px; }
-      .certificate-caption { padding: 17px; }
-      .contact-row { display: block; }
-      .contact-row .button-primary { margin-top: 25px; }
-      .footer-row { flex-wrap: wrap; padding: 18px 0; }
-    }
-    @media (max-width: 420px) {
-      .service-grid { grid-template-columns: 1fr; }
-      .service { min-height: 165px; }
-      .project h3 { font-size: 19px; }
-      .portrait-frame { height: 340px; }
-    }
-  </style>
-  <style>
-    :root { color-scheme: dark; --bg: #11090c; --surface: #1b1115; --surface-raised: #25151b; --text: #f5eceb; --muted: #c0abad; --line: #48262e; --red: #f24452; --red-deep: #8e2434; --rose: #f0a08a; --sans: "IBM Plex Sans", sans-serif; --display: "Barlow Condensed", sans-serif; --mono: "IBM Plex Mono", monospace; --max: 1180px; }
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
-    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-    ::selection { background: var(--red); color: var(--bg); }
-    .r-wrap { width: min(var(--max), calc(100% - 64px)); margin-inline: auto; }
-    .r-header { position: sticky; top: 0; z-index: 10; background: rgba(17,9,12,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(18px); }
-    .r-header-inner { width: min(var(--max), calc(100% - 64px)); min-height: 78px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
-    .r-brand { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 700; }
-    .r-brand-mark { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--red); color: var(--red); font: 16px var(--mono); }
-    .r-brand small { display: block; margin-top: 3px; color: var(--muted); font: 11px var(--mono); }
-    .r-nav-links { display: flex; align-items: center; gap: 30px; color: #dfd1d1; font-size: 14px; }
-    .r-nav-links a:hover, .r-nav-links a:focus-visible { color: var(--red); }
-    .r-button { display: inline-flex; align-items: center; justify-content: center; gap: 14px; min-height: 50px; padding: 0 20px; background: var(--red); color: #190b0e; font-size: 13px; font-weight: 700; transition: background .2s, transform .2s; }
-    .r-button:hover { background: #ff727b; transform: translateY(-2px); }
-    .r-menu-toggle { display: none; width: 44px; height: 44px; border: 1px solid var(--line); background: transparent; color: var(--text); cursor: pointer; }
-    .r-hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); background: radial-gradient(ellipse at 78% 44%, rgba(142,36,52,.28), transparent 48%), var(--bg); }
-    .r-hero::before { position: absolute; inset: 0; content: ""; pointer-events: none; opacity: .23; background-image: linear-gradient(rgba(242,68,82,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(242,68,82,.12) 1px, transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(90deg, transparent, black 45%, black); }
-    .r-hero-inner { position: relative; display: grid; grid-template-columns: 1.05fr .75fr; align-items: center; gap: 80px; min-height: 690px; padding-block: 76px; }
-    .r-eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 27px; color: var(--rose); font: 13px var(--mono); }
-    .r-eyebrow span { width: 9px; height: 9px; background: var(--red); box-shadow: 0 0 20px rgba(242,68,82,.7); }
-    .r-hero h1 { max-width: 760px; margin: 0; font: 600 124px/.82 var(--display); letter-spacing: 0; text-transform: none; }
-    .r-hero h1 em { color: var(--red); font-style: normal; }
-    .r-role { margin: 20px 0 0; color: var(--rose); font-size: 17px; }
-    .r-role strong { color: var(--text); }
-    .r-intro { max-width: 540px; margin: 15px 0 0; color: var(--muted); font-size: 17px; line-height: 1.75; }
-    .r-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 24px; margin-top: 30px; }
-    .r-quiet-link { color: var(--text); font-size: 15px; border-bottom: 1px solid #76545a; padding-bottom: 5px; }
-    .r-quiet-link:hover { color: var(--rose); border-color: var(--rose); }
-    .r-location { margin: 30px 0 0; color: #a98f93; font: 12px var(--mono); }
-    .r-hero-visual { position: relative; width: 100%; max-width: 440px; justify-self: end; }
-    .r-hero-photo { position: relative; height: 490px; overflow: hidden; border: 1px solid #6a3039; background: #241319; }
-    .r-hero-photo::after { position: absolute; inset: 0; content: ""; background: linear-gradient(180deg, transparent 38%, rgba(17,9,12,.92)); }
-    .r-hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; filter: grayscale(.75) sepia(.45) saturate(1.5) hue-rotate(300deg) brightness(.72); }
-    .r-photo-label { position: absolute; z-index: 1; right: 20px; bottom: 18px; left: 20px; display: flex; justify-content: space-between; gap: 12px; color: var(--text); font: 12px var(--mono); }
-    .r-photo-label span:last-child { color: var(--red); }
-    .r-photo-stamp { position: absolute; top: 24px; left: -22px; z-index: 2; padding: 12px 15px; border: 1px solid var(--red); background: var(--bg); color: var(--red); font: 12px var(--mono); }
-    .r-hero-index { position: absolute; top: 0; right: -28px; color: #90636a; font: 12px var(--mono); writing-mode: vertical-rl; }
-    .r-highlights { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); }
-    .r-highlight { min-height: 102px; display: flex; align-items: center; gap: 18px; padding: 22px 28px; border-right: 1px solid var(--line); }
-    .r-highlight:first-child { padding-left: 0; }
-    .r-highlight:last-child { border: 0; }
-    .r-highlight strong { color: var(--red); font: 600 30px var(--display); text-transform: uppercase; }
-    .r-highlight span { color: var(--muted); font-size: 14px; }
-    .r-section { padding-block: 112px; border-bottom: 1px solid var(--line); }
-    .r-section-head { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 54px; }
-    .r-kicker { margin: 0 0 15px; color: var(--red); font: 12px var(--mono); text-transform: uppercase; }
-    .r-section h2 { max-width: 730px; margin: 0; font: 600 64px/.92 var(--display); letter-spacing: 0; text-transform: uppercase; }
-    .r-section-note { max-width: 350px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
-    .r-about-copy { max-width: 880px; margin-left: 17%; }
-    .r-about-copy h3 { max-width: 800px; margin: 0 0 22px; font-size: 28px; line-height: 1.3; font-weight: 500; }
-    .r-about-copy p { max-width: 760px; margin: 0 0 16px; color: var(--muted); font-size: 17px; line-height: 1.8; }
-    .r-focus { background: var(--surface); }
-    .r-focus-list { border-top: 1px solid var(--line); }
-    .r-focus-item { display: grid; grid-template-columns: 90px 1fr 1.2fr; align-items: start; gap: 28px; padding: 30px 10px; border-bottom: 1px solid var(--line); }
-    .r-index { color: var(--red); font: 15px var(--mono); }
-    .r-focus-item h3 { margin: 0; font-size: 21px; font-weight: 500; }
-    .r-focus-item p { max-width: 500px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
-    .r-projects { border-top: 1px solid var(--line); }
-    .r-project { display: grid; grid-template-columns: 90px 1fr 1.2fr 120px; align-items: start; gap: 26px; padding: 30px 10px; border-bottom: 1px solid var(--line); transition: background .2s, padding .2s; }
-    .r-project:hover { padding-inline: 18px; background: var(--surface); }
-    .r-project-type { display: block; margin: 0 0 10px; color: var(--rose); font: 11px var(--mono); text-transform: uppercase; }
-    .r-project h3 { margin: 0; font-size: 22px; line-height: 1.3; font-weight: 500; }
-    .r-project p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
-    .r-project-status { color: var(--red); font: 11px var(--mono); text-align: right; }
-    .r-skills { background: var(--surface); }
-    .r-skills-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; }
-    .r-skills-intro { max-width: 400px; color: var(--muted); font-size: 17px; line-height: 1.75; }
-    .r-skill-row { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); }
-    .r-skill-row h3 { margin: 0; color: var(--red); font: 12px var(--mono); }
-    .r-skill-row p { margin: 0; color: #e8dada; font-size: 16px; line-height: 1.7; }
-    .r-certificate-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
-    .r-certificate { min-width: 0; border: 1px solid var(--line); background: var(--surface); }
-    .r-certificate-link { display: block; overflow: hidden; background: #1b1115; }
-    .r-certificate-link img { display: block; width: 100%; aspect-ratio: 1192 / 744; object-fit: contain; transition: transform .25s; }
-    .r-certificate-link:hover img, .r-certificate-link:focus-visible img { transform: scale(1.02); }
-    .r-certificate-copy { padding: 22px 24px 24px; }
-    .r-certificate-copy h3 { margin: 0; font-size: 22px; font-weight: 500; }
-    .r-certificate-copy p { margin: 9px 0 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
-    .r-certificate-meta { display: flex; justify-content: space-between; gap: 12px; margin-top: 17px; color: var(--rose); font: 12px var(--mono); }
-    .r-contact { padding-block: 104px; background: var(--red-deep); }
-    .r-contact-inner { display: flex; align-items: end; justify-content: space-between; gap: 40px; }
-    .r-contact .r-kicker { color: #ffadb0; }
-    .r-contact h2 { max-width: 700px; margin: 0; font: 600 72px/.9 var(--display); text-transform: uppercase; }
-    .r-contact p { margin: 18px 0 0; color: #f2d6d7; font-size: 17px; line-height: 1.65; }
-    .r-contact-links { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 25px; font: 13px var(--mono); }
-    .r-contact-links a { border-bottom: 1px solid rgba(255,255,255,.45); padding-bottom: 5px; }
-    .r-contact-links a:hover { color: #ffadb0; }
-    .r-contact .r-button { flex: 0 0 auto; background: var(--text); color: var(--red-deep); }
-    .r-contact .r-button:hover { background: #fff; }
-    .r-footer { border-top: 1px solid var(--line); }
-    .r-footer-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 18px; color: var(--muted); font: 12px var(--mono); }
-    .r-footer a:hover { color: var(--red); }
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } }
     @media (max-width: 900px) {
-      .r-wrap, .r-header-inner { width: min(var(--max), calc(100% - 40px)); }
-      .r-menu-toggle { display: block; margin-left: auto; }
-      .r-nav-cta { display: none; }
-      .r-nav-links { position: absolute; top: 77px; right: 0; left: 0; display: none; padding: 12px 20px 18px; border-bottom: 1px solid var(--line); background: var(--bg); }
-      .r-nav-links.open { display: grid; gap: 0; }
-      .r-nav-links a { padding: 13px 0; border-bottom: 1px solid var(--line); }
-      .r-nav-links a:last-child { border: 0; }
-      .r-hero-inner { grid-template-columns: 1fr .8fr; gap: 36px; min-height: 630px; }
-      .r-hero h1 { font-size: 100px; }
-      .r-hero-photo { height: 420px; }
-      .r-section { padding-block: 84px; }
-      .r-section h2 { font-size: 54px; }
-      .r-about-copy { margin-left: 8%; }
-      .r-focus-item { grid-template-columns: 54px 1fr 1.2fr; gap: 20px; }
-      .r-project { grid-template-columns: 54px 1fr 1.2fr 95px; gap: 18px; }
-      .r-skills-layout { gap: 42px; }
-      .r-contact h2 { font-size: 60px; }
+      .hero-grid { grid-template-columns: 1fr 22px; }
+      .hero-panel { max-width: 680px; }
+      .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .detail-shell { grid-template-columns: 1fr; }
+      .detail-art { min-height: 330px; }
+      .about-layout { grid-template-columns: 1fr 1.2fr; gap: 35px; }
     }
     @media (max-width: 640px) {
-      .r-wrap, .r-header-inner { width: calc(100% - 36px); }
-      .r-header-inner { min-height: 70px; }
-      .r-nav-links { top: 69px; }
-      .r-hero-inner { display: flex; flex-direction: column; align-items: stretch; gap: 38px; padding-block: 64px 50px; }
-      .r-hero h1 { font-size: 76px; }
-      .r-role { font-size: 17px; }
-      .r-intro { font-size: 16px; }
-      .r-hero-visual { width: min(86%, 400px); align-self: center; }
-      .r-hero-photo { height: 390px; }
-      .r-photo-stamp { left: -16px; }
-      .r-highlights { grid-template-columns: 1fr; }
-      .r-highlight, .r-highlight:first-child { min-height: 70px; padding: 16px 4px; border-right: 0; border-bottom: 1px solid var(--line); }
-      .r-highlight:last-child { border-bottom: 0; }
-      .r-highlight strong { min-width: 82px; font-size: 27px; }
-      .r-section { padding-block: 70px; }
-      .r-section-head { display: block; margin-bottom: 32px; }
-      .r-section h2 { font-size: 46px; }
-      .r-section-note { margin-top: 16px; }
-      .r-about-copy { margin-left: 0; }
-      .r-about-copy h3 { font-size: 24px; }
-      .r-about-copy p { font-size: 16px; }
-      .r-focus-item { grid-template-columns: 40px 1fr; gap: 12px; padding: 24px 2px; }
-      .r-focus-item p { grid-column: 2; }
-      .r-project { grid-template-columns: 40px 1fr; gap: 8px 14px; padding: 24px 2px; }
-      .r-project-meta { grid-column: 2; }
-      .r-project p { grid-column: 2; }
-      .r-project-status { grid-column: 2; text-align: left; }
-      .r-skills-layout { grid-template-columns: 1fr; gap: 25px; }
-      .r-skill-row { grid-template-columns: 1fr; gap: 8px; padding: 17px 0; }
-      .r-certificate-grid { grid-template-columns: 1fr; gap: 18px; }
-      .r-certificate-copy { padding: 18px; }
-      .r-contact { padding-block: 70px; }
-      .r-contact-inner { display: block; }
-      .r-contact h2 { font-size: 54px; }
-      .r-contact .r-button { margin-top: 28px; }
-      .r-contact-links { display: grid; gap: 15px; justify-items: start; }
-      .r-footer-inner { align-items: flex-start; flex-direction: column; justify-content: center; padding-block: 20px; }
+      .wrap { width: min(var(--content), calc(100% - 30px)); }
+      .nav-wrap { min-height: 66px; }
+      .brand-name { font-size: 9px; }
+      .menu-toggle { display: inline-flex; width: 38px; height: 38px; align-items: center; justify-content: center; margin-left: auto; border: 1px solid var(--stroke); border-radius: 3px; background: rgba(255,255,255,.08); cursor: pointer; font-size: 18px; }
+      .nav-contact { min-height: 38px; padding-inline: 12px; font-size: 8px; }
+      .nav-links { position: absolute; top: 65px; right: 15px; left: 15px; display: none; padding: 10px; border: 1px solid var(--stroke); border-radius: 4px; background: rgba(10,15,22,.92); backdrop-filter: blur(20px); }
+      .nav-links.is-open { display: grid; gap: 0; }
+      .nav-link { padding: 14px 12px; border-bottom: 1px solid var(--stroke); }
+      .nav-link:last-child { border-bottom: 0; }
+      .hero { min-height: 800px; min-height: max(750px, 100svh); padding: 94px 0 92px; }
+      .hero-art img { object-position: 58% center; }
+      .hero-art::after { background: linear-gradient(90deg, rgba(5,9,15,.72), rgba(5,9,15,.3)), linear-gradient(0deg, var(--night), transparent 46%, rgba(5,9,15,.38)); }
+      .hero-grid { display: block; }
+      .hero-panel { padding: 28px 22px; }
+      h1 { font-size: clamp(54px, 15vw, 82px); }
+      .hero-copy { font-size: 12px; }
+      .hero-mark { display: none; }
+      .hero-stats { min-height: 76px; gap: 12px; }
+      .stat { display: grid; gap: 3px; }
+      .stat strong { font-size: 16px; }
+      .stat span { font-size: 7px; letter-spacing: .05em; }
+      .scroll-cue { display: none; }
+      .section { padding: 76px 0; }
+      .section-head { display: block; margin-bottom: 28px; }
+      .section-note { margin-top: 14px; }
+      .about-layout { grid-template-columns: 1fr; gap: 24px; }
+      .project-tools { align-items: flex-start; flex-direction: column; }
+      .filters { gap: 6px; }
+      .filter-button { min-height: 32px; padding-inline: 10px; font-size: 7px; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-card { min-height: 330px; }
+      .detail-art { min-height: 270px; }
+      .detail-copy { padding: 24px 19px; }
+      .credentials-grid { grid-template-columns: 1fr; }
+      .credential { display: grid; grid-template-columns: 110px 1fr; }
+      .credential img { height: 100%; aspect-ratio: auto; object-fit: cover; }
+      .credential-copy { padding: 14px; }
+      .contact-card { display: block; }
+      .contact-card .button { margin-top: 24px; }
+      .footer-row { flex-direction: column; }
     }
   </style>
 </head>
 <body>
-  <header class="r-header">
-    <div class="r-header-inner">
-      <a class="r-brand" href="#home" aria-label="Amer Jweihan home"><span class="r-brand-mark">AJ</span><span>AMER JWEIHAN<small>CYBERSECURITY / AMMAN</small></span></a>
-      <button class="menu-toggle r-menu-toggle" aria-label="Open navigation" aria-expanded="false">+</button>
-      <nav class="nav-links r-nav-links" aria-label="Main navigation"><a href="#about">About</a><a href="#work">Projects</a><a href="#certifications">Credentials</a></nav>
-      <a class="r-button r-nav-cta" href="#contact">CONTACT <span aria-hidden="true">↗</span></a>
+  <header class="site-header">
+    <span class="scroll-progress" aria-hidden="true"></span>
+    <div class="wrap nav-wrap">
+      <a class="brand" href="#home" aria-label="Amer Jweihan home">
+        <span class="brand-mark">AJ</span>
+        <span class="brand-name">Amer Jweihan</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">+</button>
+      <nav class="nav-links" id="main-navigation" aria-label="Main navigation">
+        <a class="nav-link" href="#about">Profile</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#credentials">Credentials</a>
+      </nav>
+      <a class="nav-contact" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
     </div>
   </header>
 
-  <main class="r-main" id="home">
-    <section class="r-hero">
-      <div class="r-wrap r-hero-inner">
-        <div class="r-hero-copy reveal">
-          <p class="r-eyebrow"><span aria-hidden="true"></span> Cybersecurity student / HTU</p>
-          <h1>Amer<br><em>Jweihan.</em></h1>
-          <p class="r-role">Penetration testing · Web security · Digital forensics</p>
-          <p class="r-intro">I’m studying cybersecurity at Al Hussein Technical University and building hands-on experience through security training and AURIX, my Android forensics capstone.</p>
-          <div class="r-hero-actions"><a class="r-button" href="#work">VIEW MY PROJECTS <span aria-hidden="true">↓</span></a><a class="r-quiet-link" href="#contact">Get in touch</a></div>
-          <p class="r-location">AMMAN, JORDAN · OPEN TO INTERNSHIP OPPORTUNITIES</p>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-art" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=2200&amp;q=88" alt="">
+      </div>
+      <div class="wrap hero-grid">
+        <div class="hero-panel glass reveal">
+          <p class="eyebrow hero-kicker">Cybersecurity / Amman, Jordan</p>
+          <h1>Amer<br><span>Jweihan</span></h1>
+          <p class="hero-role">Offensive security · Digital forensics · Secure systems</p>
+          <p class="hero-copy">
+            Cybersecurity student at Al Hussein Technical University. I build, investigate, and test in controlled environments—with a focus on evidence you can trust and systems you can secure.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">Explore my work <span aria-hidden="true">↓</span></a>
+            <a class="button" href="mailto:ammerjwihan@gmail.com">Get in touch <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-foot"><span class="live-dot" aria-hidden="true"></span> Open to internship opportunities</div>
         </div>
-        <div class="r-hero-visual reveal"><span class="r-photo-stamp">CURRENT PROJECT / AURIX</span><div class="r-hero-photo"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=85" alt="Close-up of circuit board components"><div class="r-photo-label"><span>ANDROID FORENSICS</span><span>CAPSTONE / 2026</span></div></div></div>
+        <span class="hero-mark">FIELD NOTES — 2026</span>
+      </div>
+      <div class="hero-bottom">
+        <div class="wrap hero-stats">
+          <div class="stat"><strong>08</strong><span>Selected projects</span></div>
+          <div class="stat"><strong>03</strong><span>Certifications</span></div>
+          <div class="stat"><strong>13</strong><span>AURIX artifact categories</span></div>
+          <a class="scroll-cue" href="#about">Scroll to explore ↓</a>
+        </div>
       </div>
     </section>
 
-    <section class="r-section" id="about"><div class="r-wrap">
-      <div class="r-section-head reveal"><div><p class="r-kicker">01 / About</p><h2>A little about<br>what I do.</h2></div><p class="r-section-note">I’m studying cybersecurity at Al Hussein Technical University and looking for an internship where I can keep learning and contribute.</p></div>
-      <div class="r-about-copy reveal"><h3>My interests are penetration testing, web security, and digital forensics.</h3><p>Alongside my coursework and certifications, I’m developing AURIX, an Android forensics capstone that organizes application and device artifacts into clear investigation reports.</p></div>
-    </div></section>
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><p class="section-index">01 — Profile</p><h2>Built to<br>investigate.</h2></div>
+          <p class="section-note">A hands-on approach to cybersecurity: controlled offensive testing, forensic integrity, and clear communication of risk.</p>
+        </div>
+        <div class="about-layout">
+          <p class="about-quote reveal">“Understand the system.<br><span>Preserve the evidence.</span><br>Make it safer.”</p>
+          <div class="about-panel glass reveal">
+            <p>
+              I’m pursuing a BSc in Cybersecurity at Al Hussein Technical University, developing practical skills across penetration testing, Active Directory security, Android and computer forensics, secure networking, information security management, and data analytics. My work is grounded in authorized labs and careful evidence handling.
+            </p>
+            <div class="chips" aria-label="Areas and tools">
+              <span class="chip">Burp Suite</span><span class="chip">Nmap</span><span class="chip">Kali Linux</span>
+              <span class="chip">BloodHound</span><span class="chip">FTK Imager</span><span class="chip">ALEAPP</span>
+              <span class="chip">NIST CSF 2.0</span><span class="chip">COBIT 2019</span><span class="chip">Python</span>
+              <span class="chip">Power BI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section class="r-section" id="work"><div class="r-wrap">
-      <div class="r-section-head reveal"><div><p class="r-kicker">02 / Projects</p><h2>Selected work.</h2></div><p class="r-section-note">Cybersecurity education, technical coursework, and project experience from my degree in computing and information security.</p></div>
-      <div class="r-projects"><article class="r-project reveal"><span class="r-index">01</span><div class="r-project-meta"><span class="r-project-type">CAPSTONE / 2026</span><h3>AURIX Android forensics</h3></div><p>Developing an Android forensics investigation tool that organizes device and application artifacts into structured findings and reports. The project focuses on artifact validation and case-ready analysis.</p><span class="r-project-status">IN PROGRESS</span></article><article class="r-project reveal"><span class="r-index">02</span><div class="r-project-meta"><span class="r-project-type">COMPETITION / HTU</span><h3>Database Hero winner</h3></div><p>Designed and implemented an SQL-based database solution, applying schema design, query optimization, and data organization to win the university database competition.</p><span class="r-project-status">1ST PLACE</span></article><article class="r-project reveal"><span class="r-index">03</span><div class="r-project-meta"><span class="r-project-type">COURSEWORK</span><h3>Secure network &amp; MySQL</h3></div><p>Built a secure network environment and deployed a functional MySQL database as part of academic coursework focused on protected systems and structured data handling.</p><span class="r-project-status">HTU</span></article></div>
-      <div class="r-projects" style="margin-top: 28px;"><article class="r-project reveal"><span class="r-index">04</span><div class="r-project-meta"><span class="r-project-type">EDUCATION / HTU</span><h3>B.Sc. in Cybersecurity</h3></div><p>Studying cybersecurity with coursework in networking, web security, cryptography, operating systems, digital forensics, secure coding, and system risk analysis.</p><span class="r-project-status">IN PROGRESS</span></article><article class="r-project reveal"><span class="r-index">05</span><div class="r-project-meta"><span class="r-project-type">COURSEWORK</span><h3>Network security &amp; cryptography</h3></div><p>Covered secure communication, network protection, and cryptographic concepts as part of the degree-plan curriculum in computing and information security.</p><span class="r-project-status">HTU</span></article><article class="r-project reveal"><span class="r-index">06</span><div class="r-project-meta"><span class="r-project-type">COURSEWORK</span><h3>Database, forensics &amp; ethical hacking</h3></div><p>Built core skills in database design, forensic investigation, and ethical hacking through structured academic modules and applied project work.</p><span class="r-project-status">HTU</span></article></div>
-      <div class="r-projects" style="margin-top: 28px;"><article class="r-project reveal"><span class="r-index">07</span><div class="r-project-meta"><span class="r-project-type">EDUCATION</span><h3>Security-focused degree plan</h3></div><p>My academic path includes professional skills, cybersecurity fundamentals, programming, networking, operating systems, web development, risk analysis, and capstone project work.</p><span class="r-project-status">ACADEMIC</span></article><article class="r-project reveal"><span class="r-index">08</span><div class="r-project-meta"><span class="r-project-type">EXPERIENCE</span><h3>Leadership &amp; entrepreneurship</h3></div><p>Developed communication, teamwork, and project leadership skills through entrepreneurship and leadership camp activities alongside technical training.</p><span class="r-project-status">HTU</span></article><article class="r-project reveal"><span class="r-index">09</span><div class="r-project-meta"><span class="r-project-type">TRAINING</span><h3>Web security &amp; penetration testing</h3></div><p>Strengthened my practical understanding of web vulnerabilities, offensive testing, and secure software practices through certification-based cybersecurity study.</p><span class="r-project-status">CERTIFIED</span></article></div>
-    </div></section>
+    <section class="section projects-section" id="projects">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><p class="section-index">02 — Work / 2025—2026</p><h2>Selected projects.</h2></div>
+          <p class="section-note">Choose a field to filter the work, or open any project for a closer look. Each project card is interactive.</p>
+        </div>
+        <div class="project-tools reveal">
+          <div class="filters" role="group" aria-label="Filter projects">
+            <button class="filter-button" type="button" data-filter="all" aria-pressed="true">All work</button>
+            <button class="filter-button" type="button" data-filter="security" aria-pressed="false">Security</button>
+            <button class="filter-button" type="button" data-filter="forensics" aria-pressed="false">Forensics</button>
+            <button class="filter-button" type="button" data-filter="systems" aria-pressed="false">Systems</button>
+            <button class="filter-button" type="button" data-filter="data" aria-pressed="false">Data &amp; web</button>
+          </div>
+          <span class="project-count" id="project-count" aria-live="polite">08 projects</span>
+        </div>
+        <div class="project-grid" id="project-grid" aria-live="polite"></div>
+        <div class="detail-shell glass reveal" id="project-detail" aria-live="polite">
+          <div class="detail-art">
+            <img id="detail-image" src="" alt="">
+            <div class="detail-art-label"><span id="detail-type"></span><span id="detail-year"></span></div>
+          </div>
+          <div class="detail-copy">
+            <p class="eyebrow" id="detail-category"></p>
+            <h3 id="detail-title"></h3>
+            <p class="detail-description" id="detail-description"></p>
+            <div class="detail-meta">
+              <div><span class="meta-label">Area</span><span class="meta-value" id="detail-area"></span></div>
+              <div><span class="meta-label">Status</span><span class="meta-value" id="detail-status"></span></div>
+            </div>
+            <div class="detail-tags" id="detail-tags"></div>
+            <button class="button detail-cta" id="detail-open" type="button">Full project notes <span aria-hidden="true">↗</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section class="r-section" id="certifications"><div class="r-wrap"><div class="r-section-head reveal"><div><p class="r-kicker">03 / Credentials</p><h2>Certifications.</h2></div><p class="r-section-note">Select either certificate to view it full size.</p></div><div class="r-certificate-grid"><article class="r-certificate reveal"><a class="r-certificate-link" href="assets/CWSE.jpg" target="_blank" rel="noreferrer" aria-label="View Certified Web Security Expert certificate full size"><img src="assets/CWSE.jpg" alt="Hackviser Certified Web Security Expert certificate issued to Amer Jweihan on November 28, 2025"></a><div class="r-certificate-copy"><h3>Certified Web Security Expert</h3><p>Hackviser · Web security and vulnerability exploitation.</p><div class="r-certificate-meta"><span>ISSUED NOV 28, 2025</span><span>CWSE</span></div></div></article><article class="r-certificate reveal"><a class="r-certificate-link" href="assets/CAPT.jpg" target="_blank" rel="noreferrer" aria-label="View Certified Associate Penetration Tester certificate full size"><img src="assets/CAPT.jpg" alt="Hackviser Certified Associate Penetration Tester certificate issued to Amer Jweihan on November 8, 2025"></a><div class="r-certificate-copy"><h3>Certified Associate Penetration Tester</h3><p>Hackviser · Penetration testing methods, tools, and techniques.</p><div class="r-certificate-meta"><span>ISSUED NOV 8, 2025</span><span>CAPT</span></div></div></article></div></div></section>
+    <section class="section" id="credentials">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><p class="section-index">03 — Credentials</p><h2>Learning in motion.</h2></div>
+          <p class="section-note">Professional certifications and ongoing training complement project-based learning and university study.</p>
+        </div>
+        <div class="credentials-grid">
+          <article class="credential glass reveal">
+            <img src="assets/CAPT.jpg" alt="CAPT certificate from Hackviser">
+            <div class="credential-copy"><h3>CAPT</h3><p>Certified Associate Penetration Tester</p><span class="credential-label">Hackviser · Certified</span></div>
+          </article>
+          <article class="credential glass reveal">
+            <img src="assets/CWSE.jpg" alt="CWSE certificate from Hackviser">
+            <div class="credential-copy"><h3>CWSE</h3><p>Certified Web Security Expert</p><span class="credential-label">Hackviser · Certified</span></div>
+          </article>
+          <article class="credential glass reveal">
+            <div class="credential-copy"><span class="eyebrow">Red Team Leaders</span><h3>CCEP</h3><p>Certified Cybersecurity Educator Professional</p><span class="credential-label">Professional certification</span></div>
+          </article>
+        </div>
+        <div class="credential-extra glass reveal"><strong>Additional training</strong><span>eJPTv1 preparation · Python Intermediate (DataCamp) · Kali Purple Essentials</span></div>
+      </div>
+    </section>
 
-    <section class="r-contact" id="contact"><div class="r-wrap r-contact-inner reveal"><div><p class="r-kicker">04 / Contact</p><h2>Let’s connect.</h2><p>I’m looking for a cybersecurity internship or entry-level opportunity.</p><div class="r-contact-links"><a href="mailto:ammerjwihan@gmail.com">AMMERJWIHAN@GMAIL.COM</a><a href="tel:+962780576900">+962 78 057 6900</a><a href="https://www.linkedin.com/in/amerjwihan/" target="_blank" rel="noreferrer">LINKEDIN ↗</a></div></div><a class="r-button" href="mailto:ammerjwihan@gmail.com?subject=Cybersecurity%20opportunity">EMAIL AMER <span aria-hidden="true">↗</span></a></div></section>
+    <section class="section contact-section" id="contact">
+      <div class="wrap">
+        <div class="contact-card glass reveal">
+          <div>
+            <p class="section-index">04 — Contact / Open to opportunities</p>
+            <h2>Let’s make<br>systems safer.</h2>
+            <p>Looking for internship opportunities where I can contribute, keep learning, and do careful security work.</p>
+            <div class="contact-links">
+              <a href="mailto:ammerjwihan@gmail.com">ammerjwihan@gmail.com</a>
+              <a href="tel:+966570714418">+966 57 071 4418</a>
+              <a href="https://www.linkedin.com/in/amerjwihan" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            </div>
+          </div>
+          <a class="button button-primary" href="mailto:ammerjwihan@gmail.com">Email Amer <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="r-footer"><div class="r-wrap r-footer-inner"><span>© 2026 AMER JWEIHAN / CYBERSECURITY</span><a href="#home">BACK TO TOP ↑</a><span>AMMAN, JORDAN · <span id="clock">--:--:-- UTC</span></span></div></footer>
+  <footer>
+    <div class="wrap footer-row"><span>Amer Jweihan · Cybersecurity</span><a href="#home">Back to top ↑</a><span>Built with care / 2026</span></div>
+  </footer>
+
+  <dialog id="project-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-inner">
+      <div class="dialog-top">
+        <div><p class="section-index" id="dialog-category"></p><h2 id="dialog-title"></h2></div>
+        <button class="dialog-close" type="button" aria-label="Close project notes">×</button>
+      </div>
+      <p class="dialog-copy" id="dialog-description"></p>
+      <ul class="dialog-outcomes" id="dialog-outcomes"></ul>
+    </div>
+  </dialog>
+
   <script>
-    const menuButton = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    menuButton.addEventListener('click', () => {
-      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-      menuButton.setAttribute('aria-expanded', String(!isOpen));
-      menuButton.setAttribute('aria-label', isOpen ? 'Open navigation' : 'Close navigation');
-      menuButton.textContent = isOpen ? '+' : '×';
-      navLinks.classList.toggle('open', !isOpen);
-    });
-    navLinks.addEventListener('click', event => {
-      if (event.target.closest('a')) {
-        navLinks.classList.remove('open');
-        menuButton.setAttribute('aria-expanded', 'false');
-        menuButton.setAttribute('aria-label', 'Open navigation');
-        menuButton.textContent = '+';
+    const projects = [
+      {
+        id: "aurix", title: "AURIX — Android forensics", type: "Capstone", category: "forensics", year: "2026", status: "In progress",
+        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85",
+        summary: "A unified Android extraction and investigation workflow spanning 13 artifact categories.",
+        description: "Co-designed an Android forensic extraction and reporting system covering device and system information, calls, SMS, app activity, installed apps, browser history, Wi-Fi configuration, photo/GPS metadata, and messaging artifacts. The workflow emphasizes hashing, read-only working copies, timestamp normalization, and provenance.",
+        tools: ["ALEAPP", "SHA-256", "Android artifacts"],
+        outcomes: ["Defined an investigator-focused report with a technical appendix.", "Designed a unified timeline with rule-based correlation while preserving evidence IDs.", "Specified modular parsers and explicit handling for unavailable or unsupported artifacts."]
+      },
+      {
+        id: "red-team", title: "Penetration testing & red-team lab", type: "Offensive security", category: "security", year: "2026", status: "Lab exercise",
+        image: "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=1200&q=85",
+        summary: "Controlled exploitation and Active Directory security exercises in an authorized lab.",
+        description: "Built a controlled stack-based buffer-overflow exploit and worked through an Active Directory lab using enumeration, Kerberoasting, password testing, BloodHound path analysis, credential discovery, and privilege escalation. Also explored web-application race conditions with Burp Suite and Turbo Intruder.",
+        tools: ["Kali Linux", "Burp Suite", "BloodHound", "Nmap"],
+        outcomes: ["Practiced a structured discovery-to-impact workflow in isolated lab environments.", "Analyzed Active Directory relationships and attack paths.", "Tested web race conditions and completed additional CTF exercises."]
+      },
+      {
+        id: "forensics-case", title: "Confidential data leak investigation", type: "Digital forensics", category: "forensics", year: "2026", status: "Case study",
+        image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1200&q=85",
+        summary: "Reconstructed artifacts and recovered files from PC and USB forensic images.",
+        description: "Analyzed computer and USB forensic images using hex, imaging, file-carving, browser-history, and JumpList tools. Preserved original evidence, worked from analysis copies, and verified recovered evidence using hash comparisons.",
+        tools: ["HxD", "FTK Imager", "PhotoRec", "HashMyFiles"],
+        outcomes: ["Reconstructed damaged NTFS/MBR structures.", "Carved a hidden DOCX contract embedded in a PNG and recovered deleted files.", "Correlated browser and JumpList artifacts and verified results with hashes."]
+      },
+      {
+        id: "playpath", title: "PlayPath — security management", type: "Governance", category: "security", year: "2026", status: "Roadmap",
+        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=85",
+        summary: "A COBIT and NIST-aligned information security management roadmap.",
+        description: "Designed an information security management program using COBIT 2019 and NIST CSF 2.0. The work prioritized governance objectives, assessed capability maturity, mapped outcomes, and produced a phased gap-closure roadmap.",
+        tools: ["COBIT 2019", "NIST CSF 2.0", "Maturity assessment"],
+        outcomes: ["Prioritized governance and security objectives.", "Mapped outcomes across Govern, Identify, Protect, Detect, Respond, and Recover.", "Produced a phased roadmap to close identified gaps."]
+      },
+      {
+        id: "network", title: "Secure multi-site enterprise network", type: "Network design", category: "systems", year: "2025", status: "Architecture",
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=85",
+        summary: "A segmented Cisco network design with layered access controls and site connectivity.",
+        description: "Designed and configured a multi-site network with VLAN segmentation, access control lists, site-to-site IPsec VPNs, SSH/AAA, firewall zones and a DMZ, NAT, DHCP/DNS, port security, and DHCP snooping.",
+        tools: ["Cisco Packet Tracer", "VLANs", "IPsec", "ACLs"],
+        outcomes: ["Separated network zones and controlled access between segments.", "Designed secure site connectivity and management access.", "Applied infrastructure hardening controls."]
+      },
+      {
+        id: "analytics", title: "CPU market analytics & forecasting", type: "Data analytics", category: "data", year: "2026", status: "Dashboard",
+        image: "https://images.unsplash.com/photo-1555617981-dac3880eac6e?auto=format&fit=crop&w=1200&q=85",
+        summary: "Power BI dashboards for CPU pricing, sales rank, and product forecasting.",
+        description: "Collected structured CPU market data, cleaned and transformed the dataset in Power BI, built monthly pricing and sales-rank KPIs, created dashboards, and applied forecasting to evaluate product performance and pricing decisions.",
+        tools: ["Power BI", "Data preparation", "Forecasting"],
+        outcomes: ["Built monthly pricing and sales-rank measures.", "Created visual dashboards for market trends.", "Applied forecasting to support product and pricing analysis."]
+      },
+      {
+        id: "deadzone", title: "DeadZone — e-commerce platform", type: "Commerce & strategy", category: "data", year: "2026", status: "Platform build",
+        image: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1200&q=85",
+        summary: "A responsive gaming store built with WordPress and WooCommerce.",
+        description: "Built and documented a gaming e-commerce platform with searchable and filterable products, product variations, JOD pricing, customer accounts, wishlist, cart and checkout, newsletter integration, and 3D product presentation. Developed the supporting e-tailer and customer-journey strategy.",
+        tools: ["WordPress", "WooCommerce", "Responsive UX"],
+        outcomes: ["Created product discovery and purchase flows.", "Integrated accounts, cart, checkout, and newsletter features.", "Documented SWOT, customer journey, and multi-channel strategy."]
+      },
+      {
+        id: "risk", title: "Cyber risk & threat modeling", type: "Risk analysis", category: "security", year: "2026", status: "Risk model",
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=85",
+        summary: "Structured threat and risk analysis across SQL injection and ransomware scenarios.",
+        description: "Modeled SQL-injection and ransomware scenarios using STRIDE, DREAD, MITRE ATT&CK, and FAIR. Used Monte Carlo simulations to explore risk and prioritize practical mitigation recommendations.",
+        tools: ["STRIDE", "DREAD", "MITRE ATT&CK", "FAIR"],
+        outcomes: ["Mapped threats and attack scenarios using structured models.", "Applied quantitative simulation to risk analysis.", "Prioritized mitigation recommendations."]
+      }
+    ];
+
+    const grid = document.querySelector("#project-grid");
+    const count = document.querySelector("#project-count");
+    const detailImage = document.querySelector("#detail-image");
+    const detailShell = document.querySelector("#project-detail");
+    const dialog = document.querySelector("#project-dialog");
+    let activeProject = projects[0];
+    let activeFilter = "all";
+
+    function renderProjects() {
+      const visibleProjects = projects.filter(project => activeFilter === "all" || project.category === activeFilter);
+      count.textContent = `${String(visibleProjects.length).padStart(2, "0")} ${visibleProjects.length === 1 ? "project" : "projects"}`;
+      grid.innerHTML = visibleProjects.map(project => `
+        <button class="project-card${project.id === activeProject.id ? " is-selected" : ""}" type="button"
+          style="--project-image: url('${project.image}')"
+          data-project="${project.id}" aria-pressed="${project.id === activeProject.id}"
+          aria-label="Show ${project.title} project details">
+          <span class="project-card-copy">
+            <span class="project-category">${project.type} · ${project.year}</span>
+            <h3>${project.title}</h3>
+            <p>${project.summary}</p>
+            <span class="project-card-action">Explore project <span aria-hidden="true">↗</span></span>
+          </span>
+        </button>`).join("");
+    }
+
+    function selectProject(project) {
+      activeProject = project;
+      detailImage.src = project.image;
+      detailImage.alt = `${project.title} project image`;
+      document.querySelector("#detail-type").textContent = project.type;
+      document.querySelector("#detail-year").textContent = project.year;
+      document.querySelector("#detail-category").textContent = `Project ${String(projects.indexOf(project) + 1).padStart(2, "0")} / ${project.type}`;
+      document.querySelector("#detail-title").textContent = project.title;
+      document.querySelector("#detail-description").textContent = project.description;
+      document.querySelector("#detail-area").textContent = project.tools.slice(0, 2).join(" · ");
+      document.querySelector("#detail-status").textContent = project.status;
+      document.querySelector("#detail-tags").innerHTML = project.tools.map(tool => `<span class="chip">${tool}</span>`).join("");
+      renderProjects();
+      grid.querySelector(`[data-project="${project.id}"]`)?.setAttribute("aria-current", "true");
+    }
+
+    function openProjectNotes() {
+      document.querySelector("#dialog-category").textContent = `${activeProject.type} · ${activeProject.year}`;
+      document.querySelector("#dialog-title").textContent = activeProject.title;
+      document.querySelector("#dialog-description").textContent = activeProject.description;
+      document.querySelector("#dialog-outcomes").innerHTML = activeProject.outcomes.map(outcome => `<li>${outcome}</li>`).join("");
+      dialog.showModal();
+    }
+
+    grid.addEventListener("click", event => {
+      const card = event.target.closest("[data-project]");
+      if (!card) return;
+      const project = projects.find(item => item.id === card.dataset.project);
+      if (project) {
+        selectProject(project);
+        detailShell.scrollIntoView({ behavior: "smooth", block: "center" });
       }
     });
-    const observer = new IntersectionObserver(entries => {
+
+    document.querySelector(".filters").addEventListener("click", event => {
+      const button = event.target.closest("[data-filter]");
+      if (!button) return;
+      activeFilter = button.dataset.filter;
+      document.querySelectorAll(".filter-button").forEach(item => {
+        item.setAttribute("aria-pressed", String(item === button));
+      });
+      const filtered = projects.filter(project => activeFilter === "all" || project.category === activeFilter);
+      if (filtered.length && !filtered.includes(activeProject)) selectProject(filtered[0]);
+      renderProjects();
+    });
+
+    document.querySelector("#detail-open").addEventListener("click", openProjectNotes);
+    document.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
+    dialog.addEventListener("click", event => {
+      if (event.target === dialog) dialog.close();
+    });
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navigation = document.querySelector("#main-navigation");
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
+      menuToggle.textContent = isOpen ? "+" : "×";
+      navigation.classList.toggle("is-open", !isOpen);
+    });
+    navigation.addEventListener("click", event => {
+      if (event.target.closest("a")) {
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+        menuToggle.textContent = "+";
+        navigation.classList.remove("is-open");
+      }
+    });
+
+    const headerProgress = document.querySelector(".scroll-progress");
+    let scrollFrame = 0;
+    window.addEventListener("scroll", () => {
+      if (scrollFrame) return;
+      scrollFrame = requestAnimationFrame(() => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+        headerProgress.style.transform = `scaleX(${Math.min(1, Math.max(0, progress))})`;
+        scrollFrame = 0;
+      });
+    }, { passive: true });
+
+    const sections = [...document.querySelectorAll("main section[id]")];
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        document.querySelectorAll(".nav-link").forEach(link => {
+          if (link.hash === `#${entry.target.id}`) link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
+        });
+      });
+    }, { rootMargin: "-25% 0px -65% 0px" });
+    sections.forEach(section => sectionObserver.observe(section));
+
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      grid.addEventListener("pointermove", event => {
+        const card = event.target.closest(".project-card");
+        if (!card) return;
+        const bounds = card.getBoundingClientRect();
+        const x = ((event.clientX - bounds.left) / bounds.width) * 100;
+        const y = ((event.clientY - bounds.top) / bounds.height) * 100;
+        card.style.setProperty("--pointer-x", `${x}%`);
+        card.style.setProperty("--pointer-y", `${y}%`);
+      });
+    }
+
+    const revealObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
-    const updateClock = () => {
-      document.querySelector('#clock').textContent = new Intl.DateTimeFormat('en-GB', {
-        timeZone: 'UTC', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
-      }).format(new Date()) + ' UTC';
-    };
-    updateClock();
-    setInterval(updateClock, 1000);
+    document.querySelectorAll(".reveal").forEach(element => revealObserver.observe(element));
+
+    selectProject(activeProject);
   </script>
 </body>
 </html>
