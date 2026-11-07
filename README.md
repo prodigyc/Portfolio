@@ -8,7 +8,11 @@ A responsive, single-page cybersecurity portfolio. It is a static site: no build
 - `assets/` contains the CWSE and CAPT certificate images.
 - `.github/workflows/pages.yml` deploys the site to GitHub Pages when changes are pushed to `main`.
 
-The page uses Google Fonts and a hosted Unsplash image, so those visual assets require an internet connection. Certificate images are stored locally in the repository.
+The page uses Google Fonts, a hosted Unsplash image, and Glisse v0.5.0's stylesheet (jsDelivr) and React components (version-pinned ESM via esm.sh), so those visual assets and component dependencies require an internet connection. Certificate images are stored locally in the repository.
+
+The header uses Glisse's `.lg-glass` surface, and Glisse `Button` components power the project filters and hero actions. React and Glisse load directly in the browser; no package installation or build step is required. See [0kzh/glisse](https://github.com/0kzh/glisse) for the library and its MIT license.
+
+The visual direction pairs an editorial personal introduction with a working-terminal visual, code-like navigation, and a subtle grid. Its warm beige canvas balances orange details with golden-yellow highlights, while the terminal retains a dark contrast surface. The portfolio highlights Amer's interest in ethical hacking and authorized security labs alongside digital forensics and secure systems.
 
 ## Publish with GitHub Pages
 
