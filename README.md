@@ -1,32 +1,53 @@
-# Amer Jweihan Portfolio
+# Amer Jweihan — Interactive Cinematic Portfolio (V3)
 
-A responsive, single-page cybersecurity portfolio. It is a static site: no build step or package installation is needed.
+The cinematic portfolio from V2, now with physical pointer interactions and particle-based typography. Built with HTML, CSS, and JavaScript; no build process required.
 
-## Files
+## Run locally
 
-- `index.html` is the site.
-- `assets/` contains the CWSE and CAPT certificate images.
-- `.github/workflows/pages.yml` deploys the site to GitHub Pages when changes are pushed to `main`.
+```bash
+python -m http.server 8000
+```
 
-The page uses Google Fonts, a hosted Unsplash image, and Glisse v0.5.0's stylesheet (jsDelivr) and React components (version-pinned ESM via esm.sh), so those visual assets and component dependencies require an internet connection. Certificate images are stored locally in the repository.
+Open http://localhost:8000 inside the `Amer_Interactive_Portfolio_v3` directory. Because the site dynamically imports Anime.js from a CDN, an internet connection is helpful for Anime.js, but all essential motion still works with the browser's built-in Web Animations API if offline.
 
-The header uses Glisse's `.lg-glass` surface, and Glisse `Button` components power the project filters and hero actions. React and Glisse load directly in the browser; no package installation or build step is required. See [0kzh/glisse](https://github.com/0kzh/glisse) for the library and its MIT license.
+## New in V3
 
-The visual direction pairs an editorial personal introduction with a working-terminal visual, code-like navigation, and a subtle grid. Its warm beige canvas balances orange details with golden-yellow highlights, while the terminal retains a dark contrast surface. The portfolio highlights Amer's interest in ethical hacking and authorized security labs alongside digital forensics and secure systems.
+### Interactive orbital globe
 
-## Publish with GitHub Pages
+- Move the cursor onto the globe to push and distort the meridians and nodes; its HUD reacts too.
+- Click the sphere to send a bright expanding pulse through the mesh.
+- **Hold and drag** to spin it in any direction; when released, it keeps moving under inertia before returning to gentle automatic rotation.
+- Double-click for a larger impact pulse.
+- One optimized Canvas 2D renderer keeps the mesh and effects in sync. Animation pauses while the globe is offscreen.
 
-1. Create a **public** repository on GitHub. Do not initialize it with a README or other files.
-2. In this folder, commit and push the site:
+### Destructible contact headline
 
-   ```powershell
-   git add .
-   git commit -m "Add portfolio site"
-   git remote add origin https://github.com/USERNAME/REPOSITORY.git
-   git push -u origin main
-   ```
+- On desktop, **hover over the giant contact headline** and move your cursor through the letters to disintegrate them into tiny glowing particles.
+- Fast mouse strokes throw fragments further and inherit your cursor's momentum.
+- **Click the headline** for a powerful, much larger explosion.
+- Particles spring back to their original letters after you leave the section. The actual HTML heading remains underneath for accessibility, SEO, and no-JavaScript fallback.
+- Touchscreen and reduced-motion users get a clean, fully readable static headline.
 
-3. In the repository, open **Settings → Pages** and set the source to **GitHub Actions**.
-4. Open the **Actions** tab and wait for “Deploy portfolio to GitHub Pages” to finish. GitHub will show the public site URL in the deployment details.
+### Smaller details
 
-Future pushes to `main` redeploy the site automatically.
+- Certification cards tilt subtly to follow the pointer, with a traveling spotlight.
+- The large project visual gets a softer tracking light.
+- Interactive hints guide visitors without covering buttons or hiding content.
+- All V2 sections, project filters, the eight project case files, the filmstrip, certificate artwork, contact links, modal, and navigation are preserved.
+
+## Implementation
+
+- `interactive.js`: pointer input, globe projection/physics, rasterized contact-heading particles, hover lighting.
+- `motion.js`: original cinematic transitions with Anime.js WAAPI and native Web Animations API fallback.
+- `app.js`: original projects, gallery, filters, dialogs, mobile navigation.
+- `projects.js`: project dataset.
+- `styles.css`: original design plus responsive interaction styles.
+- `assets/`: local project and certification visuals.
+
+## Deploy to GitHub Pages
+
+The `.github/workflows/pages.yml` workflow is included. Copy the **contents** of this folder into the repository root and publish the main branch through GitHub Actions.
+
+## Accessibility & performance
+
+The system respects `prefers-reduced-motion`, never replaces the semantic heading or mailto link with canvas-only content, switches off cursor destruction on touch devices, and caps device-pixel ratio to prevent oversized canvases. The original site remains functional if Anime.js cannot load.
