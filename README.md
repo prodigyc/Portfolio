@@ -1,53 +1,31 @@
-# Amer Jweihan — Interactive Cinematic Portfolio (V3)
+# Amer Jweihan — Immersive Portfolio (V4 Refined)
 
-The cinematic portfolio from V2, now with physical pointer interactions and particle-based typography. Built with HTML, CSS, and JavaScript; no build process required.
+This version is a **targeted refinement of the original V4**, not the V5 redesign.
+
+## What changed
+
+- Archive still uses its original scroll-driven 3D corridor. Clicking a screen **expands the selected project in a full-screen overlay immediately**, without navigating down to the gallery. A numbered case index supports keyboard and touch interactions, and the overlay has previous/next buttons.
+- The original contact headline stays visible and unchanged. Cursor movement and clicks instead **fracture the neon environment behind it** into reactive triangular shards; it settles back naturally.
+- The former interactive scanner board is replaced with an original blue **architectural data rift** scene with a mirrored megacity, mouse-driven camera displacement, scroll depth, and a glitch pulse button.
+- The original V4 hero and voxel mode, project gallery, certifications, contact information, and navigation remain.
 
 ## Run locally
+
+Extract the folder, open a terminal **in the folder containing `index.html`**, then:
 
 ```bash
 python -m http.server 8000
 ```
 
-Open http://localhost:8000 inside the `Amer_Interactive_Portfolio_v3` directory. Because the site dynamically imports Anime.js from a CDN, an internet connection is helpful for Anime.js, but all essential motion still works with the browser's built-in Web Animations API if offline.
+Open `http://localhost:8000`.
 
-## New in V3
+## Deploy
 
-### Interactive orbital globe
+The existing GitHub Pages workflow remains in `.github/workflows/pages.yml`.
 
-- Move the cursor onto the globe to push and distort the meridians and nodes; its HUD reacts too.
-- Click the sphere to send a bright expanding pulse through the mesh.
-- **Hold and drag** to spin it in any direction; when released, it keeps moving under inertia before returning to gentle automatic rotation.
-- Double-click for a larger impact pulse.
-- One optimized Canvas 2D renderer keeps the mesh and effects in sync. Animation pauses while the globe is offscreen.
+## Notes
 
-### Destructible contact headline
-
-- On desktop, **hover over the giant contact headline** and move your cursor through the letters to disintegrate them into tiny glowing particles.
-- Fast mouse strokes throw fragments further and inherit your cursor's momentum.
-- **Click the headline** for a powerful, much larger explosion.
-- Particles spring back to their original letters after you leave the section. The actual HTML heading remains underneath for accessibility, SEO, and no-JavaScript fallback.
-- Touchscreen and reduced-motion users get a clean, fully readable static headline.
-
-### Smaller details
-
-- Certification cards tilt subtly to follow the pointer, with a traveling spotlight.
-- The large project visual gets a softer tracking light.
-- Interactive hints guide visitors without covering buttons or hiding content.
-- All V2 sections, project filters, the eight project case files, the filmstrip, certificate artwork, contact links, modal, and navigation are preserved.
-
-## Implementation
-
-- `interactive.js`: pointer input, globe projection/physics, rasterized contact-heading particles, hover lighting.
-- `motion.js`: original cinematic transitions with Anime.js WAAPI and native Web Animations API fallback.
-- `app.js`: original projects, gallery, filters, dialogs, mobile navigation.
-- `projects.js`: project dataset.
-- `styles.css`: original design plus responsive interaction styles.
-- `assets/`: local project and certification visuals.
-
-## Deploy to GitHub Pages
-
-The `.github/workflows/pages.yml` workflow is included. Copy the **contents** of this folder into the repository root and publish the main branch through GitHub Actions.
-
-## Accessibility & performance
-
-The system respects `prefers-reduced-motion`, never replaces the semantic heading or mailto link with canvas-only content, switches off cursor destruction on touch devices, and caps device-pixel ratio to prevent oversized canvases. The original site remains functional if Anime.js cannot load.
+- V4 is a static site: no npm installation or build step is required.
+- The archive, rift, and contact environments use Canvas 2D and run without WebGL. Anime.js motion uses the CDN when available and falls back to native Web Animations.
+- Reduced-motion and mobile/touch layouts remain supported. The archive overlay uses a native HTML `<dialog>` for focus handling and Escape-to-close behavior.
+- Original case-study data and assets are in `projects.js` and `assets/`.
